@@ -40,9 +40,15 @@ app.use(express.static(distPath));
 
 // Fallback to index.html for Single Page Application routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join(distPath, 'index.html'));
+  const indexPath = path.join(distPath, 'index.html');
+  res.sendFile(indexPath, (err) => {
+    if (err) {
+      res.status(200).send('Autosuz Server running. Dist build pending or loading...');
+    }
+  });
 });
 
-app.listen(PORT, () => {
-  console.log(`Autosuz Production Server running on port ${PORT}`);
+const HOST = process.env.HOST || '0.0.0.0';
+app.listen(PORT, HOST, () => {
+  console.log(`Autosuz Production Server running on http://${HOST}:${PORT}`);
 });
