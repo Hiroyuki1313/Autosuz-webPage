@@ -39,8 +39,8 @@ app.get('/api/autos', async (req, res) => {
 const distPath = path.join(__dirname, 'dist');
 app.use(express.static(distPath));
 
-// Fallback to index.html for Single Page Application routes
-app.get('*', (req, res) => {
+// Fallback to index.html for Single Page Application routes (Express 5 safe)
+app.use((req, res) => {
   const indexPath = path.join(distPath, 'index.html');
   res.sendFile(indexPath, (err) => {
     if (err) {
