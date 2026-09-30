@@ -12,10 +12,10 @@ export const COMPANY_INFO = {
     zip: "31110",
     full: "Av Francisco Villa 5306, Arboledas I Etapa, 31110 Chihuahua, Chih."
   },
-  phone: "+52 1 614 232 0752",
-  phoneFormatted: "(614) 232-0752",
-  whatsapp: "5216142320752",
-  whatsappLink: "https://wa.me/5216142320752?text=Hola%20Autosuz%20CUU%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20su%20inventario%20de%20autos",
+  phone: "+52 1 614 355 6990",
+  phoneFormatted: "(614) 355-6990",
+  whatsapp: "5216143556990",
+  whatsappLink: "https://wa.me/5216143556990?text=Hola%20Autosuz%20CUU%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20su%20inventario%20de%20autos",
   email: "contacto@autosuzcuu.com",
   schedule: {
     weekdays: "Lunes a Viernes: 8:30 AM – 7:00 PM",
