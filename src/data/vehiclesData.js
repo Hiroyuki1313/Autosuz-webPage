@@ -1,0 +1,140 @@
+export const VEHICLES_DATA = [
+  {
+    id: "auto-1",
+    title: "Chevrolet Onix RS Turbo",
+    year: 2023,
+    category: "Sedán",
+    price: 319000,
+    monthlyFrom: 5890,
+    mileage: "24,500 km",
+    transmission: "Automática",
+    fuel: "Gasolina (1.0L Turbo)",
+    engine: "1.0L Turbo 115 HP",
+    color: "Negro Ébano",
+    status: "Disponible",
+    featured: true,
+    image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=900&q=80",
+    features: [
+      "Pantalla táctil 8'' con Apple CarPlay / Android Auto",
+      "Cámara y sensores de reversa",
+      "6 bolsas de aire y control de estabilidad ESP",
+      "Rines deportivos de 16'' bitono",
+      "Faros con proyector LED"
+    ]
+  },
+  {
+    id: "auto-2",
+    title: "Renault Duster Zen",
+    year: 2022,
+    category: "SUV",
+    price: 335000,
+    monthlyFrom: 6200,
+    mileage: "36,000 km",
+    transmission: "Automática CVT",
+    fuel: "Gasolina (1.6L)",
+    engine: "1.6L 4 Cilindros 115 HP",
+    color: "Plata Estrella",
+    status: "Disponible",
+    featured: true,
+    image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=900&q=80",
+    features: [
+      "Gran altura sobre el suelo y suspensión reforzada",
+      "Cajuela amplia de 475 litros",
+      "Pantalla táctil con Media Evolution",
+      "Barras de techo portaequipaje originales",
+      "Faros con firma luminosa LED DRL"
+    ]
+  },
+  {
+    id: "auto-3",
+    title: "Mazda 3 i Grand Touring",
+    year: 2022,
+    category: "Sedán",
+    price: 418000,
+    monthlyFrom: 7750,
+    mileage: "28,200 km",
+    transmission: "Automática 6 Vel",
+    fuel: "Gasolina (2.5L)",
+    engine: "Skyactiv-G 2.5L 186 HP",
+    color: "Rojo Brillante Soul Red",
+    status: "Disponible",
+    featured: true,
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80",
+    features: [
+      "Quemacocos eléctrico corredizo",
+      "Asientos en piel genuina con ajuste eléctrico",
+      "Sistema de audio premium Bose con 12 bocinas",
+      "Head-up Display frontal proyectado",
+      "Rines de aluminio de 18 pulgadas"
+    ]
+  },
+  {
+    id: "auto-4",
+    title: "Toyota RAV4 XLE AWD",
+    year: 2021,
+    category: "SUV",
+    price: 489000,
+    monthlyFrom: 8900,
+    mileage: "42,000 km",
+    transmission: "Automática Direct Shift 8 Vel",
+    fuel: "Gasolina (2.5L)",
+    engine: "2.5L 4 Cil 203 HP",
+    color: "Gris Grafito Perlado",
+    status: "Disponible",
+    featured: true,
+    image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=900&q=80",
+    features: [
+      "Tracción integral AWD electrónica",
+      "Toyota Safety Sense con frenado autónomo",
+      "Cajuela con apertura eléctrica manos libres",
+      "Climatizador bizona automático",
+      "Cámara de reversa con líneas dinámicas"
+    ]
+  },
+  {
+    id: "auto-5",
+    title: "Ford Ranger XLT Doble Cabina",
+    year: 2021,
+    category: "Pickup",
+    price: 545000,
+    monthlyFrom: 9950,
+    mileage: "47,500 km",
+    transmission: "Automática 6 Vel",
+    fuel: "Gasolina (2.5L)",
+    engine: "Duratec 2.5L 164 HP",
+    color: "Blanco Oxford",
+    status: "Disponible",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1559416523-140ddc3d238c?auto=format&fit=crop&w=900&q=80",
+    features: [
+      "Capacidad de carga superior a 1 tonelada",
+      "Doble cabina espaciosa para 5 pasajeros",
+      "Bedliner protector en batea y estribos laterales",
+      "Pantalla táctil SYNC 3 con navegación GPS",
+      "Control de balanceo de remolque"
+    ]
+  },
+  {
+    id: "auto-6",
+    title: "Volkswagen Golf GTI 2.0T",
+    year: 2020,
+    category: "Hatchback",
+    price: 495000,
+    monthlyFrom: 9100,
+    mileage: "39,800 km",
+    transmission: "DSG 7 Vel con paletas al volante",
+    fuel: "Gasolina Turbo",
+    engine: "2.0 TSI Turbo 230 HP",
+    color: "Blanco Puro",
+    status: "Disponible",
+    featured: false,
+    image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=900&q=80",
+    features: [
+      "Transmisión DSG doble embrague ultra rápida",
+      "Diferencial autoblocante mecánico VAQ",
+      "Digital Cockpit configurable de 10.25 pulgadas",
+      "Escape deportivo doble cromado con sonido afinado",
+      "Tapicería tartán Clark icónica GTI"
+    ]
+  }
+];

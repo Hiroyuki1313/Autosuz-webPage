@@ -1,0 +1,199 @@
+/* ========================================================
+   STICKY HEADER COMPONENT (START TO END)
+   ======================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: var(--glass-blur-header);
+  -webkit-backdrop-filter: var(--glass-blur-header);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.06), inset 0 -1px 0 rgba(255, 255, 255, 0.5);
+  transition: all var(--transition-smooth);
+}
+
+.site-header.scrolled {
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 14px 35px -8px rgba(15, 23, 42, 0.09), inset 0 -1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+/* Brand Logo (ajustado 25% más chico) */
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header-logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  transition: transform var(--transition-fast);
+}
+
+.header-brand:hover .header-logo-img {
+  transform: scale(1.04);
+}
+
+/* Desktop Navigation */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-pill-track {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: var(--glass-shadow-inset);
+  padding: 5px;
+  border-radius: var(--radius-pill);
+  gap: 4px;
+}
+
+.nav-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  border: none;
+  font-family: var(--font-heading);
+  font-size: 0.925rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.nav-link-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.nav-link-btn.active {
+  color: var(--accent-navy);
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08), inset 0 1px 1px #fff;
+}
+
+/* Catalog special highlight badge */
+.catalog-badge-pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #fff;
+  margin-left: 4px;
+}
+
+/* Header Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  font-size: 0.9rem;
+}
+
+/* Mobile Toggle */
+.mobile-toggle-btn {
+  display: none;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: var(--radius-md);
+  padding: 10px;
+  color: var(--text-primary);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+/* Mobile Glass Drawer */
+.mobile-nav-drawer {
+  display: none;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: var(--glass-blur-header);
+  -webkit-backdrop-filter: var(--glass-blur-header);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 20px 24px 28px;
+  gap: 12px;
+  box-shadow: 0 20px 30px rgba(15, 23, 42, 0.1);
+  animation: slideDown 0.25s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-nav-drawer .nav-link-btn {
+  width: 100%;
+  justify-content: flex-start;
+  padding: 12px 18px;
+  font-size: 1.05rem;
+}
+
+@media (max-width: 960px) {
+  .header-container {
+    padding: 0 20px;
+    height: 74px;
+  }
+  
+  .header-logo-img {
+    height: 39px;
+  }
+
+  .header-nav {
+    display: none;
+  }
+
+  .mobile-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-nav-drawer {
+    display: flex;
+  }
+}

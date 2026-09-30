@@ -1,0 +1,485 @@
+:root {
+  /* Colors */
+  --bg-gradient-start: #dbe4ee;
+  --bg-gradient-mid: #eef2f7;
+  --bg-gradient-end: #d9e2ec;
+  
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  
+  --accent-blue: #0284c7;
+  --accent-blue-glow: rgba(2, 132, 199, 0.35);
+  --accent-navy: #1e293b;
+  --accent-navy-dark: #0f172a;
+  --accent-green: #10b981;
+  --accent-green-glow: rgba(16, 185, 129, 0.3);
+  
+  /* Glassmorphism Tokens */
+  --glass-bg: rgba(255, 255, 255, 0.48);
+  --glass-bg-hover: rgba(255, 255, 255, 0.62);
+  --glass-bg-card: rgba(255, 255, 255, 0.52);
+  --glass-bg-elevated: rgba(255, 255, 255, 0.68);
+  --glass-bg-dark: rgba(15, 23, 42, 0.04);
+  --glass-bg-darker: rgba(15, 23, 42, 0.75);
+  
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --glass-border-subtle: rgba(255, 255, 255, 0.45);
+  --glass-border-dark: rgba(15, 23, 42, 0.1);
+  
+  --glass-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.08), 
+                  0 8px 16px -6px rgba(15, 23, 42, 0.04),
+                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
+                  
+  --glass-shadow-lg: 0 30px 60px -15px rgba(15, 23, 42, 0.12),
+                     0 12px 24px -8px rgba(15, 23, 42, 0.06),
+                     inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.98),
+                     inset 0 -1px 2px 0 rgba(15, 23, 42, 0.02);
+                     
+  --glass-shadow-inset: inset 2px 2px 5px rgba(15, 23, 42, 0.05),
+                        inset -2px -2px 5px rgba(255, 255, 255, 0.9);
+                        
+  --glass-blur: blur(24px) saturate(180%);
+  --glass-blur-header: blur(28px) saturate(190%);
+  
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+  
+  /* Fonts */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background-color: var(--bg-gradient-mid);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: 
+    radial-gradient(circle at 15% 20%, rgba(200, 215, 235, 0.8) 0%, transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(220, 230, 245, 0.8) 0%, transparent 45%),
+    radial-gradient(circle at 50% 60%, rgba(210, 225, 240, 0.7) 0%, transparent 50%),
+    radial-gradient(circle at 80% 85%, rgba(225, 235, 245, 0.7) 0%, transparent 45%),
+    linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-mid) 50%, var(--bg-gradient-end) 100%);
+  background-attachment: fixed;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+/* Ambient Floating Background Elements matching reference picture */
+.ambient-scene {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Discrete Frosted Blur Veil on background */
+.ambient-frosted-veil {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  backdrop-filter: blur(8px) saturate(130%);
+  -webkit-backdrop-filter: blur(8px) saturate(130%);
+  background: rgba(240, 244, 250, 0.22);
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(55px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.orb-light-1 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(240, 245, 255, 0.4) 65%, transparent 100%);
+  top: 20%;
+  left: 10%;
+}
+
+.orb-light-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(230, 240, 255, 0.3) 60%, transparent 100%);
+  bottom: 22%;
+  right: 12%;
+}
+
+/* Deep Blurred Black Orbs (Reference: top right & bottom left blurred spheres) */
+.black-blur-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(45px);
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(15, 23, 42, 0.72) 0%, rgba(15, 23, 42, 0.35) 60%, transparent 80%);
+}
+
+.black-blur-top-right {
+  width: 260px;
+  height: 260px;
+  top: 14%;
+  right: 8%;
+  opacity: 0.75;
+}
+
+.black-blur-bottom-left {
+  width: 320px;
+  height: 320px;
+  bottom: 12%;
+  left: 4%;
+  opacity: 0.7;
+}
+
+.black-blur-mid-left {
+  width: 190px;
+  height: 190px;
+  top: 55%;
+  left: -2%;
+  opacity: 0.5;
+}
+
+/* 3D Glossy Black Spheres (Reference: glossy dark black spheres with specular reflection) */
+.black-gloss-sphere {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #475569 0%, #1e293b 30%, #0f172a 70%, #020617 100%);
+  box-shadow: 
+    0 24px 45px rgba(0, 0, 0, 0.32),
+    0 8px 16px rgba(0, 0, 0, 0.2),
+    inset 0 2px 3px rgba(255, 255, 255, 0.4),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+
+.black-gloss-sphere::after {
+  content: '';
+  position: absolute;
+  top: 18%;
+  left: 22%;
+  width: 26%;
+  height: 20%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.85) 0%, transparent 80%);
+  transform: rotate(-28deg);
+  filter: blur(0.6px);
+}
+
+.sphere-black-1 {
+  width: 140px;
+  height: 140px;
+  top: 28%;
+  right: 6%;
+}
+
+.sphere-black-2 {
+  width: 105px;
+  height: 105px;
+  bottom: 24%;
+  left: 9%;
+}
+
+.sphere-black-small {
+  width: 50px;
+  height: 50px;
+  top: 68%;
+  right: 18%;
+}
+
+/* Translucent Clear Glass Water-drop Bubbles */
+.clear-glass-bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.25) 36%, rgba(215, 228, 245, 0.1) 70%, rgba(255, 255, 255, 0.55) 100%);
+  border: 1.2px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 
+    0 20px 40px rgba(15, 23, 42, 0.1),
+    inset 0 3px 6px rgba(255, 255, 255, 0.95),
+    inset 0 -3px 6px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: none;
+}
+
+.bubble-glass-1 {
+  width: 155px;
+  height: 155px;
+  top: 22%;
+  left: 6%;
+}
+
+.bubble-glass-2 {
+  width: 120px;
+  height: 120px;
+  top: 50%;
+  right: 5%;
+}
+
+.bubble-glass-3 {
+  width: 80px;
+  height: 80px;
+  bottom: 18%;
+  left: 22%;
+}
+
+.bubble-glass-mini {
+  width: 42px;
+  height: 42px;
+  top: 38%;
+  left: 18%;
+}
+
+/* Gentle Organic Floating Displacement Animations ("que se desplazen, que se muevan poquito") */
+.drift-slow-1 {
+  animation: driftGentle1 22s ease-in-out infinite alternate;
+}
+
+.drift-slow-2 {
+  animation: driftGentle2 26s ease-in-out infinite alternate;
+}
+
+.drift-slow-3 {
+  animation: driftGentle3 19s ease-in-out infinite alternate;
+}
+
+.drift-slow-4 {
+  animation: driftGentle4 24s ease-in-out infinite alternate;
+}
+
+.drift-slow-5 {
+  animation: driftGentle5 28s ease-in-out infinite alternate;
+}
+
+@keyframes driftGentle1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(16px, -24px);
+  }
+  100% {
+    transform: translate(-14px, 18px);
+  }
+}
+
+@keyframes driftGentle2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-22px, 18px);
+  }
+  100% {
+    transform: translate(18px, -15px);
+  }
+}
+
+@keyframes driftGentle3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, 20px);
+  }
+  100% {
+    transform: translate(-15px, -18px);
+  }
+}
+
+@keyframes driftGentle4 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-18px, -22px);
+  }
+  100% {
+    transform: translate(14px, 16px);
+  }
+}
+
+@keyframes driftGentle5 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(22px, -16px);
+  }
+  100% {
+    transform: translate(-20px, 14px);
+  }
+}
+
+/* Glassmorphism Core Utility */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), background-color var(--transition-smooth);
+}
+
+.glass-panel-elevated {
+  background: var(--glass-bg-elevated);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow-lg);
+  border-radius: var(--radius-xl);
+}
+
+/* Neumorphic subtle inset indicator */
+.neumorphic-inset {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: var(--glass-shadow-inset);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--radius-pill);
+}
+
+/* Buttons */
+.btn-glass {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 26px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-smooth);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  color: var(--text-primary);
+  box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.08), inset 0 1px 1px rgba(255, 255, 255, 1);
+}
+
+.btn-glass:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 14px 28px -6px rgba(15, 23, 42, 0.12), inset 0 1px 1px rgba(255, 255, 255, 1);
+  color: var(--accent-navy);
+}
+
+.btn-glass:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08), inset 0 2px 4px rgba(15, 23, 42, 0.06);
+}
+
+.btn-glass-primary {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+}
+
+.btn-glass-primary:hover {
+  background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.45);
+}
+
+.btn-glass-whatsapp {
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.08), inset 0 1px 1px rgba(255, 255, 255, 1);
+}
+
+.btn-glass-whatsapp:hover {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--accent-navy);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -6px rgba(15, 23, 42, 0.12), inset 0 1px 1px rgba(255, 255, 255, 1);
+}
+
+.wa-icon-green {
+  color: #10b981;
+  filter: drop-shadow(0 1px 2px rgba(16, 185, 129, 0.35));
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(225, 233, 242, 0.6);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.65);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.85);
+  background-clip: content-box;
+}
+
+.spin-animation {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
