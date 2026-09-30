@@ -1,9 +1,14 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { getAutosFromDB } from './server/db.js';
 
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -29,6 +34,15 @@ app.get('/api/autos', async (req, res) => {
   }
 });
 
+// Serve frontend static build in production
+const distPath = path.join(__dirname, 'dist');
+app.use(express.static(distPath));
+
+// Fallback to index.html for Single Page Application routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(distPath, 'index.html'));
+});
+
 app.listen(PORT, () => {
-  console.log(`Autosuz Backend API running on http://localhost:${PORT}`);
+  console.log(`Autosuz Production Server running on port ${PORT}`);
 });
